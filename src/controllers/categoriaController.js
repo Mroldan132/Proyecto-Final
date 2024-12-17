@@ -51,9 +51,10 @@ export const addCategoria = async (req, res) => {
 
 // Actualizar una categoría existente
 export const updateCategoria = async (req, res) => {
-    const { nombre } = req.body;
+    const { nombre,descripcion } = req.body;
     const nuevaCategoria = {};
     if (nombre) nuevaCategoria.nombre = nombre;
+    if (descripcion) nuevaCategoria.descripcion = descripcion;
     try {
         let categoria = await Categoria.findById(req.params.id);
         if (!categoria) {

@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router-dom'
 import { Index } from './pages/Index'
 import { NavBar } from './components/NavBar'
 import { Error } from './pages/Error'
+import { Categoria } from './pages/Categoria'
 import { Footer } from './components/Footer'
 import { GeneralChat } from './pages/GeneralChat'
 import { SignUp } from './pages/SignUp'
@@ -47,7 +48,8 @@ function App() {
       <Route path='*' element={ <Error/> } />
       {<Route path='/signup' element={ !profile== false ? <Index /> :<SignUp />  } />} 
       {<Route path='/chat' element={ !profile == false ?  <GeneralChat />:<SignIn />  } />}
-      {<Route path='/login' element={ !profile== false ? <Index /> :<SignIn />  } />} 
+      {<Route path='/login' element={ !profile== false ? <Index /> :<SignIn />  } />}
+      {<Route path='/categoria' element={ !profile== false ? <Categoria /> :<SignIn />  } />} 
       {/*{<Route path='/profile' element={ !profile == false ? <Profile />  : <SignIn />} />}*/}
     </Routes>
     <Footer/>

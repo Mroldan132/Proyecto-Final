@@ -14,7 +14,7 @@ export const NavBar = () => {
             <LinkRouter to={"/"} className=''>Inicio</LinkRouter>
             <LinkRouter >Platillos</LinkRouter>
             <LinkRouter >Ordenes</LinkRouter>
-            <LinkRouter >Categorias</LinkRouter>
+            <LinkRouter to={"/categoria"} className=''>Categorias</LinkRouter>
             <LinkRouter >Personal</LinkRouter>
             <LinkRouter >Atencion al Cliente</LinkRouter>
         </ul>
