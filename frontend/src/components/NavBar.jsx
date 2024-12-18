@@ -23,7 +23,7 @@ export const NavBar = () => {
           <LinkRouter to="/plato">Platillos</LinkRouter>
           <LinkRouter to="/orden">Ordenes</LinkRouter>
           <LinkRouter to="/categoria" className="">Categorías</LinkRouter>
-          <LinkRouter to="/personal">Personal</LinkRouter>
+          {/* <LinkRouter to="/personal">Personal</LinkRouter> */}
           <LinkRouter to="/cliente">Cliente</LinkRouter>
           <LinkRouter to="/chat">Chat</LinkRouter>
           {isAuthenticated && (

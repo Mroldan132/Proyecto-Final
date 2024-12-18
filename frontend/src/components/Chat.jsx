@@ -9,16 +9,14 @@ const socket = io(SV_API_URL, {
 });
 
 export function Chat() {
-    const { profile } = useTokenStore(state => state.profile);
     const [message, setMessage] = useState("");
+    const profile = useTokenStore(state => state.profile);
     const [messages, setMessages] = useState([
         {
             body: "",
-            from: `${profile?.username || "Usuario desconocido"} Ha entrado al chat`,
+            from: `${profile?.usuario || "Usuario desconocido"} Ha entrado al chat`,
         },
     ]);
-    const profiles = useTokenStore(state => state.profile);
-console.log(profiles);  // Verifica qué contiene profile
     const inputRef = useRef(null);
     const chatRef = useRef(null);
 
@@ -33,6 +31,7 @@ console.log(profiles);  // Verifica qué contiene profile
             socket.off("message", receiveMessage);
         };
     }, []);
+    console.log("Profile:", profile);
 
     useEffect(() => {
         if (chatRef.current) {
@@ -46,7 +45,7 @@ console.log(profiles);  // Verifica qué contiene profile
 
         const newMessage = {
             body: message,
-            from: profile.username,
+            from: profile?.usuario || "Usuario desconocido",
         };
 
         socket.emit("message", newMessage);
@@ -55,7 +54,6 @@ console.log(profiles);  // Verifica qué contiene profile
 
         setMessage("");
     };
-
     return (
         <ChatStyled>
             <div id="chat" className="chat" ref={chatRef}>

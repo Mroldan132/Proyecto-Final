@@ -10,17 +10,6 @@ export const Footer = () => {
           <h2>Tagliatore</h2>
           <p>Tagliatore es un restaurante que ofrece la mejor experiencia culinaria con platillos auténticos y deliciosos. ¡Visítanos y disfruta!</p>
         </div>
-
-        <div className="footer-section links">
-          <h3>Enlaces útiles</h3>
-          <ul>
-            <li><Link to="/">Inicio</Link></li>
-            <li><Link to="/categoria">Categorías</Link></li>
-            <li><Link to="/platillos">Platillos</Link></li>
-            <li><Link to="/contacto">Contáctanos</Link></li>
-          </ul>
-        </div>
-
         <div className="footer-section social">
           <h3>Redes Sociales</h3>
           <div className="social-icons">
