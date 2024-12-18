@@ -1,5 +1,17 @@
-*{
+/* Asegúrate de que html y body ocupen toda la altura disponible */
+html, body {
+    height: 100%;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+  }
+  
+  /* El body usa flexbox para organizar el contenido */
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Esto asegura que el footer se quede en el fondo si el contenido es pequeño */
+  footer {
+    margin-top: auto;  /* Esto empuja el footer hacia el fondo */
+  }
+  

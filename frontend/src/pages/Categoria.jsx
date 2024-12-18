@@ -12,8 +12,12 @@ export const Categoria = () => {
 
     // Cargar categorías
     const fetchCategorias = async () => {
-        const response = await listaCategoria();
-        setCategorias(response);
+        try {
+            const response = await listaCategoria();
+            setCategorias(response);
+        } catch (error) {
+            Swal.fire("Error", "Hubo un error al cargar las categorías.", "error");
+        }
     };
 
     useEffect(() => {
@@ -22,7 +26,6 @@ export const Categoria = () => {
 
     // Crear o actualizar categoría
     const handleSave = async (idToEdit,formData) => {
-        debugger
         try {
             if (idToEdit) {
                 await categoriaUpdate(idToEdit, formData);
@@ -111,8 +114,8 @@ export const Categoria = () => {
                 </thead>
                 <tbody>
                     {categorias.map((categoria,index) => (
-                        <tr key={index++}>
-                            <td>{index++}</td>
+                        <tr key={index}>
+                            <td>{index + 1 }</td>
                             <td>{categoria.nombre}</td>
                             <td>{categoria.descripcion}</td>
                             <td>

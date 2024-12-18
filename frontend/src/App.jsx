@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useEffect } from 'react'
 import styled from 'styled-components'
-import { Route, Routes } from 'react-router-dom'
+import {Navigate, Route, Routes } from 'react-router-dom'
 import { Index } from './pages/Index'
 import { NavBar } from './components/NavBar'
 import { Error } from './pages/Error'
 import { Categoria } from './pages/Categoria'
+import {Cliente} from './pages/Cliente'
+import {Plato} from './pages/Plato'
+import {Orden} from './pages/Orden'
 import { Footer } from './components/Footer'
 import { GeneralChat } from './pages/GeneralChat'
 import { SignUp } from './pages/SignUp'
@@ -23,6 +24,7 @@ const socket = io(SV_API_URL, {
 function App() {
 
   const  logOut = useTokenStore(state => state.logOut)
+  const profile = useTokenStore(state => state.profile)
 
   useEffect(() => {
     if(localStorage.getItem('token')!== null){
@@ -34,22 +36,23 @@ function App() {
       }
       verifyProfile()
     }
-  }
-  ,[])
+  },[logOut])
 
-  const profile = useTokenStore(state => state.profile)
 
   return (
     <AppStyled>
       
-    <NavBar />
+    {profile  && <NavBar />}
     <Routes>
-      <Route path='/' element={ <Index /> } />
+    <Route path="/" element={<Navigate to="/login" />} />
       <Route path='*' element={ <Error/> } />
       {<Route path='/signup' element={ !profile== false ? <Index /> :<SignUp />  } />} 
       {<Route path='/chat' element={ !profile == false ?  <GeneralChat />:<SignIn />  } />}
       {<Route path='/login' element={ !profile== false ? <Index /> :<SignIn />  } />}
       {<Route path='/categoria' element={ !profile== false ? <Categoria /> :<SignIn />  } />} 
+      {<Route path='/cliente' element={ !profile == false ? <Cliente />  : <SignIn />} />}
+      {<Route path='/orden' element={ !profile == false ? <Orden />  : <SignIn />} />}
+      {<Route path='/plato' element={ !profile == false ? <Plato />  : <SignIn />} />}
       {/*{<Route path='/profile' element={ !profile == false ? <Profile />  : <SignIn />} />}*/}
     </Routes>
     <Footer/>

@@ -2,7 +2,7 @@ import axios from "../libs/axios"
 
 export const listaPlato = async() =>{
     try {
-        const response = await axios.get('/plato')
+        const response = await axios.get('/platos')
         return response.data
     } catch (error) {
         return {

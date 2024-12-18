@@ -2,7 +2,7 @@ import axios from "../libs/axios"
 
 export const listaOrden = async() =>{
     try {
-        const response = await axios.get('/orden')
+        const response = await axios.get('/ordenes')
         return response.data
     } catch (error) {
         return {
