@@ -94,7 +94,7 @@ export const delMesero = async (req, res) => {
         if (!mesero) {
             return res.status(404).json({ msg: 'Mesero no encontrado' });
         }
-        await Mesero.findByIdAndRemove({ _id: req.params.id });
+        await Mesero.findByIdAndDelete({ _id: req.params.id });
         res.json({ msg: 'Mesero eliminado' });
     }
     catch (error) {

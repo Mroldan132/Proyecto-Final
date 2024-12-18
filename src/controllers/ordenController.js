@@ -69,7 +69,7 @@ export const delOrden = async (req, res) => {
         if (!orden) {
             return res.status(404).json({ msg: 'Orden no encontrada' });
         }
-        await Orden.findByIdAndRemove({ _id: req.params.id });
+        await Orden.findByIdAndDelete({ _id: req.params.id });
         res.json({ msg: 'Orden eliminada' });
     }
     catch (error) {

@@ -73,7 +73,7 @@ export const delCliente = async (req, res) => {
         if (!cliente) {
             return res.status(404).json({ msg: 'Cliente no encontrado' });
         }
-        await Cliente.findByIdAndRemove({ _id: req.params.id });
+        await Cliente.findByIdAndDelete({ _id: req.params.id });
         res.json({ msg: 'Cliente eliminado' });
     }
     catch (error) {

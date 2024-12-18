@@ -68,7 +68,7 @@ export const delPlato = async (req, res) => {
         if (!plato) {
             return res.status(404).json({ msg: 'Plato no encontrado' });
         }
-        await Plato.findByIdAndRemove({ _id: req.params.id });
+        await Plato.findByIdAndDelete({ _id: req.params.id });
         res.json({ msg: 'Plato eliminado' });
     }
     catch (error) {

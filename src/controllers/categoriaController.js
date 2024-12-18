@@ -76,7 +76,7 @@ export const delCategoria = async (req, res) => {
         if (!categoria) {
             return res.status(404).json({ msg: 'Categoría no encontrada' });
         }
-        await Categoria.findByIdAndRemove({ _id: req.params.id });
+        await Categoria.findByIdAndDelete({ _id: req.params.id });
         res.json({ msg: 'Categoría eliminada' });
     }
     catch (error) {
