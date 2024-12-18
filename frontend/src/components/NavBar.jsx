@@ -25,6 +25,7 @@ export const NavBar = () => {
           <LinkRouter to="/categoria" className="">Categorías</LinkRouter>
           <LinkRouter to="/personal">Personal</LinkRouter>
           <LinkRouter to="/cliente">Cliente</LinkRouter>
+          <LinkRouter to="/chat">Chat</LinkRouter>
           {isAuthenticated && (
             <button onClick={handleLogout}>Cerrar sesión</button>
           )}

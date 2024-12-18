@@ -82,7 +82,7 @@ console.log(profiles);  // Verifica qué contiene profile
 
 const ChatStyled = styled.div`
   .chat {
-    max-height: 400px;
+    min-height: 400px;
     overflow-y: auto;
     margin-bottom: 1rem;
     padding: 1rem;
