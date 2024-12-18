@@ -38,7 +38,7 @@ npm install
 ```
 Lanza el servidor del frontend con el siguiente comando: 
 ```bash
- npm start
+ npm run dev
 ```
 ## Paso 3: Ejecutar el Backend 
 
@@ -49,7 +49,7 @@ cd ..
 
 Lanza el servidor del backend con el siguiente comando: 
 ```bash
-npm start 
+npm run dev 
 ```
 ---
 
