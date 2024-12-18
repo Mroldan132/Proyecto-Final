@@ -41,13 +41,13 @@ export const addOrden = async (req, res) => {
 
 // Update an existing Order
 export const updateOrden = async (req, res) => {
-    const { fecha, total, cliente, mesero, productos } = req.body;
+    const { mesa, nroDeOrden, platillos, cantidades, estado } = req.body;
     const nuevaOrden = {};
-    if (fecha) nuevaOrden.fecha = fecha;
-    if (total) nuevaOrden.total = total;
-    if (cliente) nuevaOrden.cliente = cliente;
-    if (mesero) nuevaOrden.mesero = mesero;
-    if (productos) nuevaOrden.productos = productos;
+    if (mesa) nuevaOrden.mesa = mesa;
+    if (nroDeOrden) nuevaOrden.nroDeOrden = nroDeOrden;
+    if (platillos) nuevaOrden.platillos = platillos;
+    if (cantidades) nuevaOrden.cantidades = cantidades;
+    if (estado) nuevaOrden.estado = estado;
     try {
         let orden = await Orden.findById(req.params.id);
         if (!orden) {

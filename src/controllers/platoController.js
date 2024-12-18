@@ -41,8 +41,9 @@ export const addPlato = async (req, res) => {
 
 // Update an existing product
 export const updatePlato = async (req, res) => {
-    const { nombre, precio, categoria } = req.body;
+    const { nombre, descripcion, precio, categoria } = req.body;
     const nuevoPlato = {};
+    if (descripcion) nuevoPlato.descripcion = descripcion;
     if (nombre) nuevoPlato.nombre = nombre;
     if (precio) nuevoPlato.precio = precio;
     if (categoria) nuevoPlato.categoria = categoria;
